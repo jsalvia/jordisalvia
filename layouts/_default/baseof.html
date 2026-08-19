@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode | default "ca" }}">
+{{ partial "head.html" . }}
+<body>
+  {{ partial "header.html" . }}
+  <section id="wrapper">
+	{{ block "main" . }}{{ end }}
+  </section>
+  {{ partial "footer.html" . }}
+  {{ partial "custom_footer.html" . }}
+		{{ range .Site.Params.plugins_js }}
+			<script src="{{ . }}"></script>
+		{{ end }}
+</body>
+</html>

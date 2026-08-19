@@ -1,0 +1,182 @@
+/* ────────────────────────────────────────────────────────────
+   Tema fosc permanent (estil manton.org, sense mode clar)
+   ──────────────────────────────────────────────────────────── */
+
+/* GENERAL */
+
+body {
+	color: #E5E9EC;
+	background: #151414;
+}
+
+h1, h2, h3 {
+	color: #E5E9EC;
+}
+
+a, p a, ul a, ol a {
+	color: #B8C3CC;
+	transition: none !important;
+	box-shadow: none !important;
+}
+
+b, strong {
+	color: #B8C3CC;
+}
+
+span.divider {
+	background-color: #2B343B;
+}
+
+/* NAVIGATION (capçalera centrada i recollida) */
+
+nav.main-nav {
+	background: #2A2828;
+	padding: 12px 20px;
+	position: sticky;
+	top: 0;
+	z-index: 100;
+	text-align: center;
+}
+
+.nav-inner {
+	max-width: 600px;           /* mateix ample que el contingut */
+	margin: 0 auto;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;  /* nom a l'esquerra, pestanyes a la dreta */
+	flex-wrap: wrap;
+	gap: 10px 28px;
+}
+
+nav.main-nav a {
+	color: #90A3CA;
+	transition: none !important;
+	box-shadow: none !important;
+}
+
+nav.main-nav a:hover {
+	color: #B8C3CC;
+}
+
+.site-title {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	padding: 0;
+	margin: 0;
+}
+
+.site-title img {
+	border-radius: 50%;
+	object-fit: cover;
+}
+
+/* Avatars (barra i post-meta) sense distorsió */
+#post-meta img.avatar {
+	object-fit: cover;
+	border-radius: 50%;
+}
+
+.site-menus {
+	display: flex;
+	align-items: center;
+	gap: 20px;
+}
+
+/* POST */
+
+#post-nav a {
+	transition: none !important;
+	box-shadow: none !important;
+}
+
+#post-meta div span.dark {
+	color: #CFD2B2;	
+}
+
+#post-meta div a {
+	color: #90A3CA;
+}
+
+#post-meta div a:hover {
+	color: #E5E9EC;
+}
+
+#post-nav a {
+	color: #CFD2B2;
+	font-weight: bold;
+}
+
+#post-meta {
+	border-color: #2B343B !important;
+}
+
+.dates {
+	color: #90A3CA;
+}
+
+.dates:hover {
+	color: #E5E9EC;
+}
+
+/* FOOTER */
+
+footer .social {
+	display: flex;
+	gap: 18px;
+	justify-content: center;
+	margin-bottom: 14px;
+}
+
+footer .social a {
+	font-size: 14px;
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+}
+
+footer .social svg {
+	width: 16px;
+	height: 16px;
+}
+
+#footer a {
+	transition: none !important;
+	box-shadow: none !important;
+}
+
+#footer a {
+	color: #90A3CA;
+}
+
+#footer a:hover {
+	color: #E5E9EC;
+}
+
+/* CODI I CONTINGUT */
+
+pre {
+	background-color: #2a2a2a;
+	color: #FFF;
+}
+
+code {
+	background-color: #2A2A2A;
+}
+
+tr:nth-child(odd)>td {
+	background: #000;
+}
+
+.e-content p a {
+	text-decoration: underline !important;
+}
+
+/* Enllaços dins del cos del text: groc ambre perquè destaquin */
+.e-content a {
+	color: #E3B341;
+}
+
+.e-content a:hover {
+	color: #F2C65A;
+}

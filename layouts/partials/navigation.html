@@ -1,0 +1,23 @@
+<nav class="main-nav">
+
+	<div class="nav-inner">
+
+	<div class="site-title">
+		<img src="{{ .Site.Params.Author.avatar }}" width="25" height="25" class="site-image">		
+		<a href="/">{{ .Site.Title }}</a>
+	</div>
+
+	<div class="site-menus">
+
+		{{ range .Site.Menus.main }}
+			{{ if and .Page .Page.Params.redirect_url }}
+				<a href="{{ .Page.Params.redirect_url }}">{{ .Name }}</a>
+			{{ else }}
+				<a href="{{ .URL | relLangURL | safeURL }}">{{ .Name }}</a>
+			{{ end }}
+		{{ end }}
+
+	</div>
+
+	</div>
+</nav>
