@@ -1,0 +1,43 @@
+baseURL = 'https://jordisalvia.pages.dev/'
+title = 'Jordi Salvia'
+theme = 'alpine'
+
+languageCode = 'ca-es'
+defaultContentLanguage = 'ca'
+timeZone = 'Europe/Madrid'
+
+enableRobotsTXT = true
+summaryLength = 50
+
+[params]
+  description = 'Comunicador de l’Alt Penedès. Cultura popular, sobirania digital i justícia social.'
+  theme_seconds = '20260819'
+  alpine_accent_text_color = '#f29c38'
+  alpine_accent_background_color = '#ffffff'
+  alpine_hover_background_color = '#fffee4'
+
+  [params.author]
+    name = 'Jordi Salvia'
+    username = 'jordisalvia'
+    avatar = '/images/avatar.jpg'
+
+[menu]
+  [[menu.main]]
+    name = 'Inici'
+    pageRef = '/'
+    weight = 1
+
+  [[menu.main]]
+    name = 'Arxiu'
+    url = '/posts/'
+    weight = 2
+
+  [[menu.main]]
+    name = 'Ara'
+    pageRef = '/now/'
+    weight = 3
+
+  [[menu.main]]
+    name = 'Sobre mi'
+    pageRef = '/about/'
+    weight = 4
