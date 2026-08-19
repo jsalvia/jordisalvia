@@ -1,0 +1,33 @@
+# Configuració del panell d'administració (Decap CMS)
+# L'admin viu a https://jordisalvia.pages.dev/admin/
+
+backend:
+  name: github
+  repo: jsalvia/jordisalvia
+  branch: main
+  site_domain: https://jordisalvia.pages.dev
+  base_url: https://jordisalvia.pages.dev
+  auth_endpoint: /api/auth
+
+media_folder: "static/images"
+public_folder: "/images"
+
+collections:
+  - name: "posts"
+    label: "Posts"
+    folder: "content/posts"
+    create: true
+    slug: "{{slug}}"
+    sortable_fields: ["date", "title"]
+    editor:
+      preview: true
+    fields:
+      - { label: "Imatge (per a la targeta social)", name: "image", widget: "image", required: false }
+      - { label: "Títol", name: "title", widget: "string" }
+      - { label: "Data i hora", name: "date", widget: "datetime", format: "YYYY-MM-DDTHH:mm:ssZ" }
+      - { label: "Tipus", name: "type", widget: "hidden", default: "post" }
+      - { label: "Micro-post (el títol no es mostra a la web)", name: "micro", widget: "boolean", default: false, required: false }
+      - { label: "Descripció", name: "description", widget: "text", required: false }
+      - { label: "Etiquetes", name: "tags", widget: "list", required: false }
+      - { label: "Esborrany (publica quan el desactives)", name: "draft", widget: "boolean", default: false, required: false }
+      - { label: "Cos", name: "body", widget: "markdown" }
