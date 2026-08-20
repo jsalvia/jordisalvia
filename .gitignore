@@ -26,3 +26,7 @@ Icon?
 .idea/
 .vscode/
 *.iml
+
+# Obsidian (ja no es fa servir per publicar)
+.obsidian/
+_templates/
