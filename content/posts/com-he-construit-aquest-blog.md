@@ -11,7 +11,7 @@ tags:
   - sobirania digital
 draft: false
 ---
-Aquest és el primer post del blog, així que començaré explicant què és això i per què existeix. Perquè darrere d'unes quantes pàgines en blanc i negre hi ha una decisió: **publicar al meu propi lloc, abans que a cap plataforma.**
+El més difícil d'escriure no és escriure: és decidir on. M'ho he estat pensant durant anys, però ja està decidit: aquí. No és que abandoni les xarxes — són cases llogades, i **m'hi quedaré mentre hi hagi gent**. Però aquesta és la meva, i el que hi escric no me'l pot prendre ningú. Com he muntat aquesta casa i per què, ho explico a continuació.
 
 ![The Matrix](/images/the-matrix-1999.jpeg)
 
