@@ -7,7 +7,9 @@
 		<a href="/">{{ .Site.Title }}</a>
 	</div>
 
-	<div class="site-menus">
+	<button class="nav-toggle" id="nav-toggle" aria-label="Menú" aria-expanded="false" aria-controls="site-menus">☰</button>
+
+	<div class="site-menus" id="site-menus">
 
 		{{ range .Site.Menus.main }}
 			{{ if and .Page .Page.Params.redirect_url }}
@@ -21,3 +23,15 @@
 
 	</div>
 </nav>
+<script>
+(function () {
+	var btn = document.getElementById("nav-toggle");
+	var menu = document.getElementById("site-menus");
+	if (!btn || !menu) return;
+	btn.addEventListener("click", function () {
+		var open = menu.classList.toggle("open");
+		btn.setAttribute("aria-expanded", open ? "true" : "false");
+		btn.textContent = open ? "✕" : "☰";
+	});
+})();
+</script>
