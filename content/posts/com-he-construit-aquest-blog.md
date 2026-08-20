@@ -11,7 +11,7 @@ tags:
   - sobirania digital
 draft: false
 ---
-El més difícil d'escriure no és escriure: és decidir on. M'ho he estat pensant durant anys, però ja està decidit: aquí. No és que abandoni les xarxes — són cases llogades, i **m'hi quedaré mentre hi hagi gent**. Però aquesta és la meva, i el que hi escric no me'l pot prendre ningú. Com he muntat aquesta casa i per què, ho explico a continuació.
+El més difícil d'escriure no és escriure: és decidir on. M'ho he estat pensant durant anys, però ja està decidit: aquí. No és que abandoni les xarxes del tot, m'hi quedaré mentre hi hagi gent. Però aquest espai és meu, i el que hi escric no m'ho pot prendre ningú. Com he muntat aquest blog i per què, ho explico a continuació.
 
 ![The Matrix](/images/the-matrix-1999.jpeg)
 
