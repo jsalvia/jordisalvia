@@ -6,6 +6,16 @@
   <link rel="icon" type="image/png" href="{{ "images/favicon.png" | relURL }}">
   <link rel="apple-touch-icon" href="{{ "images/apple-touch-icon.png" | relURL }}">
 
+  {{/* IndieWeb: identitat i endpoints */}}
+  <link rel="me" href="https://github.com/jsalvia">
+  <link rel="webmention" href="https://webmention.io/{{ (urls.Parse .Site.BaseURL).Host }}/webmention">
+  <link rel="pingback" href="https://webmention.io/{{ (urls.Parse .Site.BaseURL).Host }}/pingback">
+
+  {{/* Comptador de visites ètic (GoatCounter) */}}
+  {{ with .Site.Params.goatcounter }}
+  <script data-goatcounter="https://{{ . }}.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+  {{ end }}
+
   <title>
       {{- block "title" . -}}
 		{{- .Site.Title -}}

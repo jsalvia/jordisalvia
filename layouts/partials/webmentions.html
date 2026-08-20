@@ -1,0 +1,58 @@
+{{ if .Site.Params.webmention_token }}
+<section id="webmentions" class="webmentions">
+  <h2>Respostes</h2>
+  <ul id="wm-replies" class="wm-replies"></ul>
+  <p id="wm-likes" class="wm-likes"></p>
+</section>
+<style>
+  .webmentions { margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid rgba(128,128,128,.25); font-size: .95em; }
+  .webmentions h2 { font-size: 1.1em; margin: 0 0 1rem; }
+  .wm-replies { list-style: none; padding: 0; margin: 0 0 1.25rem; }
+  .wm-replies li { display: flex; gap: .8rem; align-items: flex-start; margin-bottom: 1rem; }
+  .wm-replies img { width: 36px; height: 36px; border-radius: 50%; flex-shrink: 0; }
+  .wm-replies .wm-content p { margin: .15rem 0 0; }
+  .wm-likes { margin: 0; }
+  .wm-likes img { width: 24px; height: 24px; border-radius: 50%; margin-right: 2px; vertical-align: middle; }
+</style>
+<script>
+(function () {
+  var token = {{ .Site.Params.webmention_token | jsonify }};
+  var target = {{ .Permalink | jsonify }};
+  var domain = {{ (urls.Parse .Site.BaseURL).Host | jsonify }};
+  var box = document.getElementById("webmentions");
+  fetch("https://webmention.io/api/mentions.jf2?domain=" + encodeURIComponent(domain) + "&token=" + encodeURIComponent(token) + "&target=" + encodeURIComponent(target))
+    .then(function (r) { return r.json(); })
+    .then(function (data) {
+      var children = data && data.children ? data.children : [];
+      var replies = children.filter(function (m) { return m["wm-property"] === "in-reply-to"; });
+      var likes = children.filter(function (m) { return m["wm-property"] === "like-of"; });
+      var reposts = children.filter(function (m) { return m["wm-property"] === "repost-of"; });
+      if (!replies.length && !likes.length && !reposts.length) { box.remove(); return; }
+      var list = document.getElementById("wm-replies");
+      replies.forEach(function (m) {
+        var li = document.createElement("li");
+        var img = m.author && m.author.photo ? '<img src="' + m.author.photo + '" alt="">' : "";
+        var name = m.author && m.author.name ? m.author.name : "Algú";
+        var url = m.url || (m.author && m.author.url);
+        var link = url ? '<a href="' + url + '">' + name + "</a>" : name;
+        var content = m.content && m.content.text ? m.content.text : "";
+        li.innerHTML = img + '<div><span class="wm-author">' + link + "</span><div class=\"wm-content\"><p>" + content + "</p></div></div>";
+        list.appendChild(li);
+      });
+      var fan = likes.concat(reposts);
+      if (fan.length) {
+        var text = "";
+        fan.forEach(function (m) {
+          if (m.author && m.author.photo) text += '<img src="' + m.author.photo + '" title="' + (m.author.name || "") + '" alt="">';
+        });
+        var label = "";
+        if (likes.length) label += likes.length + (likes.length === 1 ? " m'agrada" : " m'agraden");
+        if (likes.length && reposts.length) label += " · ";
+        if (reposts.length) label += reposts.length + (reposts.length === 1 ? " repost" : " reposts");
+        document.getElementById("wm-likes").innerHTML = text + " <span>" + label + "</span>";
+      }
+    })
+    .catch(function () { box.remove(); });
+})();
+</script>
+{{ end }}
